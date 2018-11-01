@@ -1,0 +1,92 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+	<h1 id="fluffinko">PILLOW FIGHT!!!!<br/>Type !pillow [username]</h1>
+	<div id="pillow"></div>
+	<script>
+		function getRandomInt(max) {
+		  return Math.floor(Math.random() * Math.floor(max));
+		}
+
+		function getOrCreatePillower(name) {
+		  let pillower = pillowersByName.get(name)
+		  if (!pillower) {
+		    pillower = {
+		      pillowed: new Set(),
+		      pillowedBy: new Set(),
+		    }
+		    pillowersByName.set(name, pillower)
+		  }
+		  return pillower
+		}
+
+		function pillow(attackerName, targetName) {
+		  let attacker = getOrCreatePillower(attackerName)
+		  let target = getOrCreatePillower(targetName)
+		  attacker.pillowed.add(target)
+		  target.pillowedBy.add(attacker)
+		}
+
+		function calculateScore(pillowerName) {
+		  const pillower = getOrCreatePillower(pillowerName)
+		  return [...pillower.pillowed].reduce((score, target) => {
+		    if (target.pillowed.size > 0) score++
+		    return score
+		  }, 0)
+		}
+
+		function generateLeaderboard() {
+		  let leaderboard = [...pillowersByName.entries()].map(([name, pillower]) => {
+		    const score = [...pillower.pillowed].reduce((acc, target) => {
+		      if (target.pillowed.size > 0) acc++
+		      return acc
+		    }, 0)
+		    return {name, score}
+		  })
+		  leaderboard = leaderboard.filter(({score}) => score > 0)
+		  leaderboard.sort(({score: score1}, {score: score2}) => score2 - score1)
+		  return leaderboard
+		}
+
+		var client = null;
+		const pillowersByName = new Map();
+
+		$( document ).ready(function() {
+			// $("#fluffinko").hide();
+
+			var options = {
+				options: {
+					debug: false
+				},
+				connection: {
+					reconnect: true,
+				},
+				identity: {
+					username: "{{ username }}",
+				    password: "{{ oauth }}"
+				},
+				channels: ["#{{ username }}"]
+			};
+
+			client = new tmi.client(options);
+
+			// Connect the client to the server..
+			client.connect();
+
+			client.on("chat", function (channel, userstate, message, self) {
+				if( message.startsWith("!pillow ") ) {
+					var pillower = userstate[ "display-name" ].toLowerCase();
+					var parts = message.split(" ");
+					var user = parts[ 1 ].replace(/[^\w\s]/gi, '').toLowerCase();
+					if( pillower != user ) {
+						pillow( pillower, user );
+						// client.say( channel, "/me " + pillower + " smacks " + user + " with a fluffy pillow!" );
+
+						var leaderboard = generateLeaderboard();
+						$("#pillow").html( leaderboard.map( x => ( x.name + ": " + x.score ) ).join( "<br/>" ) );
+					}
+				}
+			});
+		});
+	</script>
+{% endblock %}
