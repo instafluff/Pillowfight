@@ -11,6 +11,8 @@ We built this Twitch-integrated Pachinko marble game live on Twitch!
 ## Credits ##
 Thank you to all the participants of this project!
 
+Special thanks to ConradReuter for the modified code in this project!
+
 **nallajbot, Lylia, lizardqueen, Mikeystea, BungalowGlow, Aririal, RIKACHET, SweetheartStar, GayandStressed, DevMerlin, MisterHex, AntiViGames, LuckyPheathers, adfriendly, SushiDay, rdmusser, ravavyr, SausageCam, DoctorArgus, malfunct, shani_, iHDeveloper, therealoliveryoutuber, sethorizer, AmericanVikingJohn, HeyOhKei, Joshuadhgm21, reverandsaul, guthron, nightsilas, SuperChihuahua, Ivena, Nordel_2, NinjaFalcon_2, MertisWee, rschuerer, GeoRevilo, thekefox, BatskyStarman, muppen1976, iTheHungryPanda, iAmNotFromHere, ChatTranslator, NihilisticNerd, nineam, TheRealKleinba, Galchobhar, foxotic, codeheir, losthewar, LastLeap, killerocbossxd, ConradReuter, v3ritaS1989, PinataHero, 1Fyme, Theoneandonlybigbadmo, Replemish, Fairhurst, bobthebuilderrrrr1, Zoraketh, Lord_of_Conquest, KevinTheUnicorn8, tr0llslay3r, 0xCOUCH, HunWalk, BatskyStarman, generickTwitch, GeoRevilo, Kara_Kim, HeyOhKei, Instafriend, MacabreMan2, That_MS_Gamer, nallaj, zivivi1, muppen1976, sparky_pugwash, iTheHungryPanda, BungalowGlow, poppybox, iAmNotFromHere, malfunct, Polarami, Nordel_2, Instafluff, bloom_molly, KitAnnLIVE, ChatTranslator, MrRayKoma, NihilisticNerd, thekefox, smilesandcode, nineam, TheRealKleinba, Galchobhar, DevMerlin, foxotic, codeheir, losthewar, Chlapicek99, BountyHunterLani, LastLeap, killerocbossxd, ConradReuter, v3ritaS1989, guthron, PinataHero, 1Fyme, jellydance, Theoneandonlybigbadmo, Replemish, Fairhurst, bobthebuilderrrrr1, Zoraketh, ItsNaomiArt, Lord_of_Conquest, KevinTheUnicorn8, tr0llslay3r, 0xCOUCH**
 
 ## Instructions ##
